@@ -1,5 +1,6 @@
 import cmath
 from math import sqrt
+from msilib import sequence
 
 # def group_by_owners(files):
 #     output={}
@@ -120,15 +121,22 @@ from math import sqrt
 #     return sol1, sol2
 # print(find_roots(2, 10, 8));
 
+# def isValidSubsequence(array, sequence):
+#     seq_index=0
+#     for a in array:
+#         if a == sequence[seq_index]:
+#             seq_index+=1
+#             if seq_index >= len(sequence):
+#                 return True
+#     return False
 
-def pipeline(*funcs):
-    def helper(arg):
-        print(arg)
-        for elem in funcs:
-            arg = elem(arg)
-        return arg
-        
-    return helper
-            
-fun = pipeline(lambda x: x * 3, lambda x: x + 1, lambda x: x / 2)
-print(fun(3)) #should print 5.0
+
+
+def validateSub(array, seq):
+    arridx=0
+    seqidx=0
+    while arridx<len(array) and seqidx < len(seq):
+        if array[arridx] == sequence[seqidx]:
+            seqidx +=1 
+        arridx+=1
+    return seqidx == len(seq)
